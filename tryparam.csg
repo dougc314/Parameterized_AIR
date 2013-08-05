@@ -1,0 +1,14 @@
+group() {
+	difference() {
+		linear_extrude(file = "closed_top-nospline.dxf", layer = "", origin = [0, 0], scale = 1, height = 6, center = true, convexity = 1, $fn = 0, $fa = 12, $fs = 2);
+		group() {
+			multmatrix([[1, 0, 0, -7], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				cylinder($fn = 0, $fa = 12, $fs = 2, h = 6, r1 = 3, r2 = 3, center = true);
+			}
+			multmatrix([[1, 0, 0, 7], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]) {
+				cylinder($fn = 0, $fa = 12, $fs = 2, h = 6, r1 = 3, r2 = 3, center = true);
+			}
+			cube(size = [14, 6, 6], center = true);
+		}
+	}
+}
